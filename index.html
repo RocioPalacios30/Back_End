@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulario</title>
+		<meta charset="utf-8">
+	</head>
+	<body bgcolor="#ffda9e">
+        <h1>Formulario</h1>
+		    <form name="Datos" method="POST" data-netlify="true" onsubmit="return validacion()">
+<p>Nombre: <input type="text" id="nombre" size="40" maxlength="50" placeholder="Escribe tu nombre"></p>
+<p>Año de nacimiento: <input type="number" id="nacido" min="1900" max="2023"></p>
+<p>Estatura: <input type="text" id="est"></p>
+<p>Sexo: 
+<input type="radio" id="hm" value="h"> Hombre
+<input type="radio" id="hm" value="m"> Mujer
+</p>
+<p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Borrar">
+</p>
+</form>
+    <script>
+    	function validacion()
+        {
+    		var name = document.getElementById("nombre").value;
+            if (/[0-9]/.test(name)) {
+            alert("El campo nombre no debe contener números");
+            return false; 
+            } 
+            var birthday = document.getElementById("nacido").value;
+            
+            var valor = document.getElementById("est").value;
+            if ( isNaN(valor))
+            {
+                alert("El campo estatura no debe contener letras");
+                return false;
+            }	
+            if (name==="" || birthday==="" || valor==="") {
+                alert("Debes completar todos los campos");
+                return false;
+            } 
+             var gender = document.getElementById("hm").value;
+             if(!document.querySelector('input[id="hm"]:checked')) {
+             alert("Selecciona tu sexo");
+             return false;
+            } 		    
+    	}
+    </script>
+	</body>
+</html>
